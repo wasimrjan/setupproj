@@ -1,11 +1,23 @@
 import express from 'express';
 import env from './env';
 import jwt from 'jsonwebtoken'; 
+import enc from 'crypto-js';
 
 import productRouter from './routers/productsRouter';
 import userRouter from './routers/userRouter';
 
 const app = express();
+
+
+const Encrypt=()=>{
+    const ienctext = enc.AES.encrypt("admin",env.encryptionKey).toString();
+    console.log("User ID: ", ienctext);
+
+    var penctext = enc.AES.encrypt("pass@321#",env.encryptionKey).toString();
+    console.log("Password: ", penctext);
+}
+
+Encrypt();
 
 class AuthResp{
     id:boolean=false;
@@ -46,3 +58,4 @@ app.listen(env.apiPort,()=>{
     console.log("is ready to connect");
 
 });
+

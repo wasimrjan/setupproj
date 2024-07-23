@@ -1,4 +1,5 @@
 const env = {
+    encryptionKey:"d0e276d0144890d3",
     secretKey:"India123",
     apiPort:8080,
     dbUser:"wasim",
