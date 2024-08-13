@@ -8,13 +8,9 @@ import userRouter from './routers/userRouter';
 
 const app = express();
 
-
 const Encrypt=()=>{
     const ienctext = enc.AES.encrypt("admin",env.encryptionKey).toString();
-    console.log("User ID: ", ienctext);
-
     var penctext = enc.AES.encrypt("pass@321#",env.encryptionKey).toString();
-    console.log("Password: ", penctext);
 }
 
 Encrypt();
@@ -39,7 +35,6 @@ const jwtAuth = (req:any,res:any,next:any)=>{
     }
      
 };
-
 
 app.use(express.json());
 
